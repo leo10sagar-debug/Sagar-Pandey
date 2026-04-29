@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagar Pandey | Quant Finance Enthusiast</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0d14;
+  --bg2: #111520;
+  --bg3: #161b2e;
+  --card: #1a2035;
+  --card2: #1f2842;
+  --accent: #4f8ef7;
+  --accent2: #7c5cfc;
+  --gold: #f5c842;
+  --green: #3dd68c;
+  --red: #f75f4f;
+  --text: #e8eaf0;
+  --text2: #9aa3b8;
+  --text3: #5a6282;
+  --border: #2a3352;
+  --border2: #3a4a72;
+  --glow: 0 0 40px rgba(79,142,247,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;min-height:100vh;animation:fadeIn 0.4s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── NAVBAR ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,13,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--accent);cursor:pointer;letter-spacing:0.02em;}
+.nav-links{display:flex;gap:0.25rem;align-items:center;}
+.nav-link{padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-size:0.875rem;font-weight:500;color:var(--text2);transition:all 0.2s;}
+.nav-link:hover,.nav-link.active{background:var(--card);color:var(--text);}
+.nav-admin-btn{padding:0.4rem 1rem;border-radius:8px;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#fff;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.2s;}
+.nav-admin-btn:hover{opacity:0.85;}
+
+/* ── HERO ── */
+.hero{padding-top:64px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding-left:8%;padding-right:8%;}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:1rem;}
+.hero-text h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-subtitle{font-size:1.1rem;color:var(--gold);font-weight:600;letter-spacing:0.05em;margin-bottom:1rem;font-family:'JetBrains Mono',monospace;}
+.hero-desc{color:var(--text2);line-height:1.8;font-size:1rem;max-width:480px;margin-bottom:2rem;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;}
+.tag{padding:0.35rem 0.85rem;border-radius:20px;font-size:0.78rem;font-weight:600;border:1px solid;}
+.tag-blue{background:rgba(79,142,247,0.1);border-color:rgba(79,142,247,0.3);color:var(--accent);}
+.tag-purple{background:rgba(124,92,252,0.1);border-color:rgba(124,92,252,0.3);color:var(--accent2);}
+.tag-gold{background:rgba(245,200,66,0.1);border-color:rgba(245,200,66,0.3);color:var(--gold);}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{padding:0.75rem 1.75rem;border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 20px rgba(79,142,247,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(79,142,247,0.4);}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2);}
+.btn-outline:hover{background:var(--card);border-color:var(--accent);}
+.hero-image-wrap{display:flex;justify-content:center;align-items:center;}
+.hero-img-frame{position:relative;width:320px;height:380px;}
+.hero-img-frame::before{content:'';position:absolute;inset:-3px;border-radius:24px;background:linear-gradient(135deg,var(--accent),var(--accent2),var(--gold));z-index:0;}
+.hero-img-frame img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;border-radius:22px;border:3px solid var(--bg);}
+.hero-img-frame::after{content:'';position:absolute;inset:0;border-radius:24px;box-shadow:0 0 60px rgba(79,142,247,0.3),0 0 120px rgba(124,92,252,0.15);z-index:2;pointer-events:none;}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2.5rem;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--accent);}
+.stat-label{font-size:0.75rem;color:var(--text3);margin-top:0.25rem;}
+
+/* ── SECTIONS ── */
+.section{padding:5rem 8%;}
+.section-title{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;margin-bottom:0.5rem;}
+.section-title span{color:var(--accent);}
+.section-sub{color:var(--text2);margin-bottom:3rem;font-size:1rem;}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0 8%;margin-bottom:1px;}
+
+/* ── ABOUT / SKILLS ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.info-list{list-style:none;}
+.info-list li{padding:0.75rem 0;border-bottom:1px solid var(--border);display:flex;gap:1rem;align-items:center;font-size:0.95rem;}
+.info-list li .label{color:var(--text3);min-width:100px;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;}
+.info-list li a{color:var(--accent);text-decoration:none;}
+.info-list li a:hover{text-decoration:underline;}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.skill-chip{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;font-size:0.875rem;font-weight:500;transition:all 0.2s;}
+.skill-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.skill-chip .icon{font-size:1.5rem;margin-bottom:0.4rem;}
+
+/* ── EDUCATION ── */
+.edu-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;transition:all 0.2s;}
+.edu-card:hover{border-color:var(--border2);box-shadow:var(--glow);}
+.edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.edu-degree{font-weight:700;font-size:1rem;margin-bottom:0.25rem;}
+.edu-school{color:var(--accent);font-size:0.9rem;margin-bottom:0.25rem;}
+.edu-year{color:var(--text3);font-size:0.8rem;font-family:'JetBrains Mono',monospace;}
+.edu-field{color:var(--text2);font-size:0.875rem;margin-top:0.5rem;}
+
+/* ── SERVICES ── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem;}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;transition:all 0.2s;cursor:pointer;}
+.service-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--glow);}
+.service-icon{font-size:2.5rem;margin-bottom:1rem;}
+.service-title{font-weight:700;margin-bottom:0.5rem;}
+.service-desc{color:var(--text2);font-size:0.875rem;line-height:1.6;}
+
+/* ── NOTES MAIN PAGE ── */
+.notes-hero{background:linear-gradient(135deg,var(--bg3) 0%,var(--bg2) 100%);border-bottom:1px solid var(--border);padding:6rem 8% 3rem;}
+.notes-hero h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;margin-bottom:0.75rem;}
+.notes-hero p{color:var(--text2);font-size:1.1rem;}
+.level-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:4rem 8%;}
+.level-card{border-radius:20px;padding:2.5rem;text-align:center;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
+.level-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;}
+.level-card:hover::before{opacity:1;}
+.level-card:hover{transform:translateY(-6px);}
+.lc-plus2{background:linear-gradient(135deg,#1a2a4a,#1e3a6e);border:1px solid rgba(79,142,247,0.4);}
+.lc-plus2:hover{box-shadow:0 20px 60px rgba(79,142,247,0.3);}
+.lc-bachelor{background:linear-gradient(135deg,#1a3a2a,#1e5a3e);border:1px solid rgba(61,214,140,0.4);}
+.lc-bachelor:hover{box-shadow:0 20px 60px rgba(61,214,140,0.3);}
+.lc-master{background:linear-gradient(135deg,#2a1a4a,#3e1e6e);border:1px solid rgba(124,92,252,0.4);}
+.lc-master:hover{box-shadow:0 20px 60px rgba(124,92,252,0.3);}
+.lc-icon{font-size:3.5rem;margin-bottom:1rem;}
+.lc-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;margin-bottom:0.5rem;}
+.lc-desc{color:var(--text2);font-size:0.9rem;line-height:1.6;}
+.lc-badge{display:inline-block;margin-top:1rem;padding:0.35rem 1rem;border-radius:20px;font-size:0.75rem;font-weight:600;}
+.badge-blue{background:rgba(79,142,247,0.2);color:var(--accent);}
+.badge-green{background:rgba(61,214,140,0.2);color:var(--green);}
+.badge-purple{background:rgba(124,92,252,0.2);color:var(--accent2);}
+
+/* ── BREADCRUMB ── */
+.breadcrumb{padding:1.5rem 8% 0;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;padding-top:80px;}
+.breadcrumb span{color:var(--text3);font-size:0.85rem;}
+.breadcrumb a{color:var(--accent);font-size:0.85rem;cursor:pointer;text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
+.breadcrumb .sep{color:var(--text3);}
+
+/* ── PROGRAM CARDS (MBA, MBS, etc) ── */
+.programs-section{padding:3rem 8%;}
+.programs-header{margin-bottom:2rem;}
+.programs-header h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;}
+.programs-header p{color:var(--text2);margin-top:0.5rem;}
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;}
+.program-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;cursor:pointer;transition:all 0.2s;position:relative;}
+.program-card:hover{border-color:var(--accent2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(124,92,252,0.2);}
+.program-card::after{content:'→';position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.2rem;transition:all 0.2s;}
+.program-card:hover::after{right:1rem;color:var(--accent);}
+.program-icon{font-size:2rem;margin-bottom:0.75rem;}
+.program-name{font-weight:700;font-size:1.1rem;margin-bottom:0.25rem;}
+.program-full{color:var(--text2);font-size:0.85rem;margin-bottom:0.5rem;}
+.program-count{color:var(--text3);font-size:0.8rem;font-family:'JetBrains Mono',monospace;}
+
+/* ── TRIMESTER ── */
+.trimesters-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:3rem 8%;}
+.trimester-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;cursor:pointer;transition:all 0.2s;text-align:center;}
+.trimester-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 40px rgba(245,200,66,0.2);}
+.tri-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;}
+.tri-label{color:var(--text2);font-size:0.875rem;margin-top:0.25rem;}
+.tri-subjects{color:var(--text3);font-size:0.8rem;margin-top:0.5rem;font-family:'JetBrains Mono',monospace;}
+
+/* ── SUBJECTS ── */
+.subjects-section{padding:3rem 8%;}
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.subject-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;cursor:pointer;transition:all 0.2s;position:relative;}
+.subject-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 12px 40px rgba(61,214,140,0.15);}
+.subject-code{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--accent);background:rgba(79,142,247,0.1);padding:0.25rem 0.6rem;border-radius:6px;display:inline-block;margin-bottom:0.75rem;}
+.subject-name{font-weight:700;font-size:1rem;margin-bottom:0.5rem;}
+.subject-chapters{color:var(--text3);font-size:0.8rem;margin-bottom:1rem;}
+.subject-contributor{display:flex;align-items:center;gap:0.6rem;padding-top:1rem;border-top:1px solid var(--border);}
+.contributor-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid var(--border2);}
+.contributor-info{flex:1;}
+.contributor-name{font-size:0.8rem;font-weight:600;}
+.contributor-role{font-size:0.72rem;color:var(--text3);}
+.subject-pdf-badge{position:absolute;top:1rem;right:1rem;background:rgba(245,95,79,0.15);color:var(--red);font-size:0.7rem;font-weight:600;padding:0.2rem 0.5rem;border-radius:6px;border:1px solid rgba(245,95,79,0.3);}
+
+/* ── CHAPTERS ── */
+.chapters-section{padding:3rem 8%;}
+.chapter-list{display:flex;flex-direction:column;gap:1rem;}
+.chapter-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;transition:all 0.2s;cursor:pointer;}
+.chapter-item:hover{border-color:var(--border2);background:var(--card2);}
+.chapter-num{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0;}
+.chapter-info{flex:1;}
+.chapter-title{font-weight:600;margin-bottom:0.2rem;}
+.chapter-meta{color:var(--text3);font-size:0.8rem;}
+.chapter-actions{display:flex;gap:0.5rem;}
+.chapter-pdf-btn{padding:0.4rem 0.8rem;border-radius:8px;background:rgba(245,95,79,0.15);color:var(--red);border:1px solid rgba(245,95,79,0.3);font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.chapter-pdf-btn:hover{background:rgba(245,95,79,0.25);}
+.chapter-edit-btn{padding:0.4rem 0.8rem;border-radius:8px;background:rgba(79,142,247,0.1);color:var(--accent);border:1px solid rgba(79,142,247,0.2);font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.chapter-edit-btn:hover{background:rgba(79,142,247,0.2);}
+
+/* ── ADMIN PANEL ── */
+.admin-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;backdrop-filter:blur(6px);}
+.admin-overlay.open{display:flex;align-items:center;justify-content:center;}
+.admin-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:min(600px,90vw);max-height:85vh;overflow-y:auto;padding:2rem;}
+.admin-modal h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.admin-modal h2 .close-btn{width:32px;height:32px;border-radius:8px;background:var(--card);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text2);}
+.admin-modal h2 .close-btn:hover{color:var(--text);}
+.admin-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;background:var(--bg);border-radius:10px;padding:0.4rem;}
+.admin-tab{flex:1;padding:0.5rem;border-radius:8px;text-align:center;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text2);transition:all 0.2s;}
+.admin-tab.active{background:var(--card2);color:var(--text);}
+.admin-content{display:none;}
+.admin-content.active{display:block;}
+.form-group{margin-bottom:1.25rem;}
+.form-label{font-size:0.85rem;font-weight:600;color:var(--text2);margin-bottom:0.5rem;display:block;}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);}
+.form-textarea{resize:vertical;min-height:100px;}
+.form-select option{background:var(--bg2);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.submit-btn{width:100%;padding:0.85rem;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;font-weight:600;font-size:0.95rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.2s;}
+.submit-btn:hover{opacity:0.9;}
+.admin-list{display:flex;flex-direction:column;gap:0.75rem;}
+.admin-list-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;display:flex;align-items:center;justify-content:space-between;}
+.ali-info{flex:1;}
+.ali-name{font-weight:600;font-size:0.9rem;}
+.ali-meta{color:var(--text3);font-size:0.78rem;margin-top:0.15rem;}
+.ali-actions{display:flex;gap:0.4rem;}
+.ali-edit,.ali-del{padding:0.3rem 0.6rem;border-radius:6px;font-size:0.75rem;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;}
+.ali-edit{background:rgba(79,142,247,0.15);color:var(--accent);}
+.ali-del{background:rgba(245,95,79,0.15);color:var(--red);}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1rem;}
+.contact-item{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);}
+.contact-icon{width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.contact-label{font-size:0.78rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;}
+.contact-value{font-weight:500;font-size:0.9rem;margin-top:0.15rem;}
+.contact-value a{color:var(--accent);text-decoration:none;}
+.contact-value a:hover{text-decoration:underline;}
+.contact-form-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;}
+.contact-form-card h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:1.5rem;}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-left{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--accent);}
+.footer-right{color:var(--text3);font-size:0.85rem;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{color:var(--text2);font-size:0.85rem;text-decoration:none;cursor:pointer;}
+.footer-links a:hover{color:var(--accent);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:1rem 1.5rem;z-index:9999;display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;transform:translateY(100px);opacity:0;transition:all 0.3s;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast-icon{font-size:1.2rem;}
+
+/* ── PDF VIEWER ── */
+.pdf-viewer-section{padding:3rem 8%;}
+.pdf-container{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.pdf-toolbar{background:var(--card2);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--border);}
+.pdf-title{font-weight:600;flex:1;}
+.pdf-frame{width:100%;height:75vh;border:none;}
+
+/* ── MISC ── */
+.empty-state{text-align:center;padding:4rem;color:var(--text3);}
+.empty-icon{font-size:3rem;margin-bottom:1rem;}
+.page-header{padding-top:80px;padding-bottom:2rem;padding-left:8%;padding-right:8%;background:linear-gradient(180deg,var(--bg3) 0%,transparent 100%);}
+.page-header h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;}
+.page-header p{color:var(--text2);margin-top:0.5rem;}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:100px;text-align:center;}
+  .hero-image-wrap{display:none;}
+  .hero-desc{margin:0 auto 2rem;}
+  .hero-tags{justify-content:center;}
+  .hero-btns{justify-content:center;}
+  .level-cards{grid-template-columns:1fr;}
+  .trimesters-grid{grid-template-columns:repeat(2,1fr);}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav>
+  <div class="nav-brand" onclick="showPage('home')">SP</div>
+  <div class="nav-links">
+    <div class="nav-link active" onclick="navTo('home',this)">Home</div>
+    <div class="nav-link" onclick="navTo('about',this)">About</div>
+    <div class="nav-link" onclick="navTo('services',this)">Services</div>
+    <div class="nav-link" onclick="navTo('notes-main',this)">Notes</div>
+    <div class="nav-link" onclick="navTo('contact',this)">Contact</div>
+    <button class="nav-admin-btn" onclick="openAdmin()">⚙ Admin</button>
+  </div>
+</nav>
+
+<!-- ══════════════ TOAST ══════════════ -->
+<div class="toast" id="toast"><span class="toast-icon">✅</span><span id="toast-msg">Saved!</span></div>
+
+<!-- ══════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-subtitle">Quant Finance Enthusiast</div>
+      <h1>Sagar <span>Pandey</span></h1>
+      <p class="hero-desc">MBA Finance · BSc Statistics · Data-Driven Mind from Kathmandu, Nepal. Passionate about quantitative analysis, AI in finance, and helping students unlock their potential.</p>
+      <div class="hero-tags">
+        <span class="tag tag-blue">Artificial Intelligence</span>
+        <span class="tag tag-purple">Regression Analysis</span>
+        <span class="tag tag-gold">Time Series Analysis</span>
+        <span class="tag tag-blue">Quant Finance</span>
+        <span class="tag tag-purple">AI in Finance</span>
+      </div>
+      <div class="hero-btns">
+        <button class="btn btn-primary" onclick="navTo('notes-main',null)">📚 Browse Notes</button>
+        <button class="btn btn-outline" onclick="navTo('contact',null)">Get in Touch</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card"><div class="stat-num">5+</div><div class="stat-label">Years Teaching</div></div>
+        <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Levels Covered</div></div>
+        <div class="stat-card"><div class="stat-num">100+</div><div class="stat-label">Students Helped</div></div>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-img-frame">
+        <img src="image.jpg" alt="Sagar Pandey" onerror="this.src='https://ui-avatars.com/api/?name=Sagar+Pandey&size=400&background=1a2035&color=4f8ef7&bold=true&font-size=0.35'">
+      </div>
+    </div>
+  </section>
+
+  <!-- Certs -->
+  <div class="section-divider"></div>
+  <section class="section">
+    <div class="section-title">🏅 Certifications</div>
+    <p class="section-sub">Professional credentials and achievements</p>
+    <div class="edu-cards">
+      <div class="edu-card"><div class="edu-degree">AI in Finance</div><div class="edu-school">Certified</div><div class="edu-field">Applying artificial intelligence techniques to financial markets and analysis</div></div>
+      <div class="edu-card"><div class="edu-degree">Sagar Pandey Quant Finance</div><div class="edu-school">Advanced Certificate</div><div class="edu-field">Quantitative methods in finance, derivatives, risk analysis</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">Sagar Pandey</div>
+    <div class="footer-links">
+      <a onclick="navTo('about',null)">About</a>
+      <a onclick="navTo('notes-main',null)">Notes</a>
+      <a onclick="navTo('contact',null)">Contact</a>
+    </div>
+    <div class="footer-right">© 2025 Sagar Pandey · Kathmandu, Nepal</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-header">
+    <h2>About Me</h2>
+    <p>Get to know my background, skills and education</p>
+  </div>
+  <section class="section" style="padding-top:2rem;">
+    <div class="about-grid">
+      <div>
+        <div class="section-title" style="font-size:1.5rem;">Personal Info</div>
+        <ul class="info-list" style="margin-top:1rem;">
+          <li><span class="label">Name</span> Sagar Pandey</li>
+          <li><span class="label">Location</span> Kathmandu, Nepal</li>
+          <li><span class="label">Mobile</span> 9708372343</li>
+          <li><span class="label">Email</span> <a href="mailto:leo10sagar@gmail.com">leo10sagar@gmail.com</a></li>
+          <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/sagarpandeyf" target="_blank">sagarpandeyf</a></li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <div class="section-title" style="font-size:1.5rem;">Top Skills</div>
+          <div class="skills-grid" style="margin-top:1rem;">
+            <div class="skill-chip"><div class="icon">🤖</div>Artificial Intelligence</div>
+            <div class="skill-chip"><div class="icon">📈</div>Regression Analysis</div>
+            <div class="skill-chip"><div class="icon">⏳</div>Time Series</div>
+            <div class="skill-chip"><div class="icon">💹</div>Quant Finance</div>
+            <div class="skill-chip"><div class="icon">📊</div>Data Analysis</div>
+            <div class="skill-chip"><div class="icon">🧮</div>Statistics</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title" style="font-size:1.5rem;">Education</div>
+        <div class="edu-cards" style="grid-template-columns:1fr;margin-top:1rem;">
+          <div class="edu-card">
+            <div class="edu-degree">Master of Business Administration</div>
+            <div class="edu-school">Uniglobe College</div>
+            <div class="edu-year">November 2025 – December 2027</div>
+            <div class="edu-field">Finance, General</div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-degree">Bachelor's Degree</div>
+            <div class="edu-school">Tribhuvan University</div>
+            <div class="edu-year">2019 – 2023</div>
+            <div class="edu-field">Statistics</div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-degree">High School (SEE +2)</div>
+            <div class="edu-school">Canvas Secondary School</div>
+            <div class="edu-year">Completed</div>
+            <div class="edu-field">Mathematics, Physics, Chemistry & Computer Science</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-left">Sagar Pandey</div>
+    <div class="footer-links"><a onclick="navTo('home',null)">Home</a><a onclick="navTo('notes-main',null)">Notes</a></div>
+    <div class="footer-right">© 2025 Sagar Pandey</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: SERVICES
+══════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <div class="page-header">
+    <h2>My Services</h2>
+    <p>Expert tutoring and analytics services tailored for your needs</p>
+  </div>
+  <section class="section" style="padding-top:2rem;">
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🧮</div><div class="service-title">Mathematics Tutoring</div><div class="service-desc">From +2 level to graduate studies — algebra, calculus, discrete maths, and more.</div></div>
+      <div class="service-card"><div class="service-icon">📊</div><div class="service-title">Statistics</div><div class="service-desc">Probability, inferential statistics, hypothesis testing, regression, time series analysis.</div></div>
+      <div class="service-card"><div class="service-icon">💻</div><div class="service-title">Data Analysis</div><div class="service-desc">Python, R, Excel-based data analysis, visualization, and reporting.</div></div>
+      <div class="service-card"><div class="service-icon">📈</div><div class="service-title">Business Analytics</div><div class="service-desc">KPI dashboards, decision modeling, forecasting, and strategic analytics support.</div></div>
+      <div class="service-card"><div class="service-icon">🤖</div><div class="service-title">AI & Finance</div><div class="service-desc">Applying machine learning and AI models to financial data and investment problems.</div></div>
+      <div class="service-card"><div class="service-icon">📝</div><div class="service-title">Research Guidance</div><div class="service-desc">Thesis and research paper support — methodology, data analysis, and write-up.</div></div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-left">Sagar Pandey</div>
+    <div class="footer-links"><a onclick="navTo('home',null)">Home</a><a onclick="navTo('contact',null)">Contact</a></div>
+    <div class="footer-right">© 2025 Sagar Pandey</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: NOTES MAIN
+══════════════════════════════════════ -->
+<div class="page" id="page-notes-main">
+  <div class="notes-hero">
+    <h1>📚 Academic Notes</h1>
+    <p>High-quality study materials across all academic levels. Select your level to explore.</p>
+  </div>
+  <div class="level-cards">
+    <div class="level-card lc-plus2" onclick="showPage('notes-plus2');setBread([{label:'Notes',page:'notes-main'},{label:'+2 Level'}])">
+      <div class="lc-icon">🏫</div>
+      <div class="lc-title">+2 Level</div>
+      <div class="lc-desc">Notes for Secondary Education Examination and higher secondary levels covering core science and commerce streams.</div>
+      <div class="lc-badge badge-blue">Grade 11 & 12</div>
+    </div>
+    <div class="level-card lc-bachelor" onclick="showPage('notes-bachelor');setBread([{label:'Notes',page:'notes-main'},{label:'Bachelor Level'}])">
+      <div class="lc-icon">🎓</div>
+      <div class="lc-title">Bachelor Level</div>
+      <div class="lc-desc">Undergraduate notes in Statistics, Mathematics, Economics, and other disciplines from Tribhuvan University.</div>
+      <div class="lc-badge badge-green">3–4 Year Programs</div>
+    </div>
+    <div class="level-card lc-master" onclick="showPage('notes-master');setBread([{label:'Notes',page:'notes-main'},{label:'Masters Level'}])">
+      <div class="lc-icon">🔬</div>
+      <div class="lc-title">Masters Level</div>
+      <div class="lc-desc">Graduate-level notes for MBA, MBS, and other programs — organized by program, trimester, and subject.</div>
+      <div class="lc-badge badge-purple">MBA · MBS · Others</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: NOTES +2
+══════════════════════════════════════ -->
+<div class="page" id="page-notes-plus2">
+  <div id="bread-plus2" class="breadcrumb"></div>
+  <div class="page-header" style="padding-top:1.5rem;">
+    <h2>🏫 +2 Level Notes</h2>
+    <p>Science and Management stream study materials</p>
+  </div>
+  <div class="subjects-section">
+    <div class="subjects-grid" id="subjects-plus2"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: NOTES BACHELOR
+══════════════════════════════════════ -->
+<div class="page" id="page-notes-bachelor">
+  <div id="bread-bachelor" class="breadcrumb"></div>
+  <div class="page-header" style="padding-top:1.5rem;">
+    <h2>🎓 Bachelor Level Notes</h2>
+    <p>Undergraduate program study materials</p>
+  </div>
+  <div class="subjects-section">
+    <div class="subjects-grid" id="subjects-bachelor"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: NOTES MASTER (program list)
+══════════════════════════════════════ -->
+<div class="page" id="page-notes-master">
+  <div id="bread-master" class="breadcrumb"></div>
+  <div class="programs-section">
+    <div class="programs-header">
+      <h2>🔬 Masters Level Programs</h2>
+      <p>Select a program to view trimesters and subjects</p>
+    </div>
+    <div class="programs-grid" id="programs-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: TRIMESTERS
+══════════════════════════════════════ -->
+<div class="page" id="page-trimesters">
+  <div id="bread-trimester" class="breadcrumb"></div>
+  <div class="page-header" style="padding-top:1.5rem;">
+    <h2 id="tri-program-title">Program Trimesters</h2>
+    <p id="tri-program-sub">Select a trimester to view subjects</p>
+  </div>
+  <div class="trimesters-grid" id="trimesters-grid"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: SUBJECTS
+══════════════════════════════════════ -->
+<div class="page" id="page-subjects">
+  <div id="bread-subjects" class="breadcrumb"></div>
+  <div class="page-header" style="padding-top:1.5rem;">
+    <h2 id="subjects-title">Subjects</h2>
+    <p id="subjects-sub">Click a subject to view chapters</p>
+  </div>
+  <div class="subjects-section" style="padding-top:1rem;">
+    <div class="subjects-grid" id="subjects-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: CHAPTERS
+══════════════════════════════════════ -->
+<div class="page" id="page-chapters">
+  <div id="bread-chapters" class="breadcrumb"></div>
+  <div class="page-header" style="padding-top:1.5rem;">
+    <h2 id="chapters-title">Chapters</h2>
+    <p id="chapters-sub">Study materials and PDF notes</p>
+  </div>
+  <div class="chapters-section">
+    <div class="chapter-list" id="chapter-list"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: PDF VIEWER
+══════════════════════════════════════ -->
+<div class="page" id="page-pdf">
+  <div id="bread-pdf" class="breadcrumb"></div>
+  <div class="pdf-viewer-section">
+    <div class="pdf-container">
+      <div class="pdf-toolbar">
+        <span class="pdf-title" id="pdf-title">Document</span>
+        <button class="btn btn-outline" style="padding:0.4rem 0.8rem;font-size:0.8rem;" onclick="history.back(),goBackPdf()">← Back</button>
+      </div>
+      <iframe class="pdf-frame" id="pdf-frame" src=""></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-header">
+    <h2>Contact Me</h2>
+    <p>Let's connect and collaborate</p>
+  </div>
+  <section class="section" style="padding-top:2rem;">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-value">Kathmandu, Bāgmatī, Nepal</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📱</div><div><div class="contact-label">Mobile</div><div class="contact-value">9708372343</div></div></div>
+        <div class="contact-item"><div class="contact-icon">✉️</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:leo10sagar@gmail.com">leo10sagar@gmail.com</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">💼</div><div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/in/sagarpandeyf" target="_blank">linkedin.com/in/sagarpandeyf</a></div></div></div>
+      </div>
+      <div class="contact-form-card">
+        <h3>Send a Message</h3>
+        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" placeholder="Full name"></div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label class="form-label">Subject</label><input class="form-input" placeholder="How can I help?"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Your message..."></textarea></div>
+        <button class="submit-btn" onclick="showToast('Message sent! I will get back to you soon.')">Send Message</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-left">Sagar Pandey</div>
+    <div class="footer-links"><a onclick="navTo('home',null)">Home</a></div>
+    <div class="footer-right">© 2025 Sagar Pandey</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     ADMIN MODAL
+══════════════════════════════════════ -->
+<div class="admin-overlay" id="admin-overlay">
+  <div class="admin-modal">
+    <h2>⚙ Admin Panel <span class="close-btn" onclick="closeAdmin()">✕</span></h2>
+    <div class="admin-tabs">
+      <div class="admin-tab active" onclick="switchAdminTab('subjects',this)">Subjects</div>
+      <div class="admin-tab" onclick="switchAdminTab('chapters',this)">Chapters</div>
+      <div class="admin-tab" onclick="switchAdminTab('contributors',this)">Contributors</div>
+      <div class="admin-tab" onclick="switchAdminTab('manage',this)">Manage</div>
+    </div>
+
+    <!-- Tab: Subjects -->
+    <div class="admin-content active" id="atab-subjects">
+      <div class="form-group">
+        <label class="form-label">Level</label>
+        <select class="form-select" id="admin-subject-level" onchange="updateProgramDropdown()">
+          <option value="plus2">+2 Level</option>
+          <option value="bachelor">Bachelor</option>
+          <option value="master">Masters</option>
+        </select>
+      </div>
+      <div class="form-group" id="admin-program-group">
+        <label class="form-label">Program (Masters only)</label>
+        <select class="form-select" id="admin-subject-program">
+          <option value="mba">MBA</option>
+          <option value="mbs">MBS</option>
+          <option value="mpa">MPA</option>
+        </select>
+      </div>
+      <div class="form-group" id="admin-trimester-group">
+        <label class="form-label">Trimester (Masters only)</label>
+        <select class="form-select" id="admin-subject-trimester">
+          <option value="1">Trimester 1</option><option value="2">Trimester 2</option>
+          <option value="3">Trimester 3</option><option value="4">Trimester 4</option>
+          <option value="5">Trimester 5</option><option value="6">Trimester 6</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Subject Code</label><input class="form-input" id="admin-subject-code" placeholder="e.g. MBA-101"></div>
+        <div class="form-group"><label class="form-label">Subject Name</label><input class="form-input" id="admin-subject-name" placeholder="Financial Management"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Contributor</label>
+        <select class="form-select" id="admin-subject-contributor">
+          <option value="">-- Select Contributor --</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">PDF File URL (optional)</label><input class="form-input" id="admin-subject-pdf" placeholder="https://... or leave blank"></div>
+      <button class="submit-btn" onclick="adminAddSubject()">➕ Add Subject</button>
+    </div>
+
+    <!-- Tab: Chapters -->
+    <div class="admin-content" id="atab-chapters">
+      <div class="form-group"><label class="form-label">Select Subject</label>
+        <select class="form-select" id="admin-chapter-subject"></select>
+      </div>
+      <div class="form-group"><label class="form-label">Chapter Number</label><input class="form-input" id="admin-chapter-num" type="number" placeholder="1"></div>
+      <div class="form-group"><label class="form-label">Chapter Title</label><input class="form-input" id="admin-chapter-title" placeholder="Introduction to..."></div>
+      <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="admin-chapter-desc" placeholder="Brief description..."></textarea></div>
+      <div class="form-group"><label class="form-label">PDF URL (optional)</label><input class="form-input" id="admin-chapter-pdf" placeholder="https://..."></div>
+      <button class="submit-btn" onclick="adminAddChapter()">➕ Add Chapter</button>
+    </div>
+
+    <!-- Tab: Contributors -->
+    <div class="admin-content" id="atab-contributors">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="admin-contrib-name" placeholder="Dr. Ram Sharma"></div>
+        <div class="form-group"><label class="form-label">Short Role/Desc</label><input class="form-input" id="admin-contrib-role" placeholder="MBA Finance · TU"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Profile Picture URL</label><input class="form-input" id="admin-contrib-pic" placeholder="https://... or leave for initials"></div>
+      <button class="submit-btn" onclick="adminAddContributor()">➕ Add Contributor</button>
+      <div style="margin-top:1.5rem;"><div class="form-label" style="margin-bottom:0.75rem;">Existing Contributors</div><div class="admin-list" id="admin-contrib-list"></div></div>
+    </div>
+
+    <!-- Tab: Manage -->
+    <div class="admin-content" id="atab-manage">
+      <div class="form-label" style="margin-bottom:0.75rem;">All Subjects</div>
+      <div class="admin-list" id="admin-subjects-list"></div>
+      <div class="form-label" style="margin-top:1.5rem;margin-bottom:0.75rem;">All Chapters</div>
+      <div class="admin-list" id="admin-chapters-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+// ── STATE ──────────────────────────────────────────────────────────
+let state = {
+  currentProgram: null,
+  currentTrimester: null,
+  currentSubjectKey: null,
+  pdfBack: null,
+  breadcrumbs: []
+};
+
+// ── DATA STORE (persistent via localStorage) ──────────────────────
+function loadData() {
+  const d = localStorage.getItem('sp_data');
+  if (d) return JSON.parse(d);
+  return {
+    contributors: [
+      { id: 'c1', name: 'Sagar Pandey', role: 'MBA Finance · Statistics', pic: 'image.jpg' },
+      { id: 'c2', name: 'Dr. Ram Sharma', role: 'MBA Finance · TU Faculty', pic: '' },
+      { id: 'c3', name: 'Anita Thapa', role: 'MBS Economics · Researcher', pic: '' }
+    ],
+    subjects: {
+      plus2: [
+        { id: 's1', code: 'MAT-11', name: 'Mathematics Grade 11', contributor: 'c1', pdf: '' },
+        { id: 's2', code: 'PHY-11', name: 'Physics Grade 11', contributor: 'c2', pdf: '' },
+        { id: 's3', code: 'CHE-11', name: 'Chemistry Grade 11', contributor: 'c2', pdf: '' },
+        { id: 's4', code: 'CS-11', name: 'Computer Science', contributor: 'c1', pdf: '' },
+        { id: 's5', code: 'MAT-12', name: 'Mathematics Grade 12', contributor: 'c1', pdf: '' },
+        { id: 's6', code: 'STAT-12', name: 'Statistics Grade 12', contributor: 'c1', pdf: '' }
+      ],
+      bachelor: [
+        { id: 'b1', code: 'STAT-301', name: 'Probability & Statistics', contributor: 'c1', pdf: '' },
+        { id: 'b2', code: 'STAT-302', name: 'Regression Analysis', contributor: 'c1', pdf: '' },
+        { id: 'b3', code: 'STAT-303', name: 'Time Series Analysis', contributor: 'c1', pdf: '' },
+        { id: 'b4', code: 'MATH-201', name: 'Calculus & Linear Algebra', contributor: 'c3', pdf: '' }
+      ],
+      master: {
+        mba: {
+          1: [
+            { id: 'm1', code: 'MBA-101', name: 'Managerial Economics', contributor: 'c2', pdf: '' },
+            { id: 'm2', code: 'MBA-102', name: 'Financial Accounting', contributor: 'c1', pdf: '' },
+            { id: 'm3', code: 'MBA-103', name: 'Organizational Behavior', contributor: 'c3', pdf: '' }
+          ],
+          2: [
+            { id: 'm4', code: 'MBA-201', name: 'Corporate Finance', contributor: 'c1', pdf: '' },
+            { id: 'm5', code: 'MBA-202', name: 'Marketing Management', contributor: 'c2', pdf: '' },
+            { id: 'm6', code: 'MBA-203', name: 'Business Statistics', contributor: 'c1', pdf: '' }
+          ],
+          3: [
+            { id: 'm7', code: 'MBA-301', name: 'Investment Analysis', contributor: 'c1', pdf: '' },
+            { id: 'm8', code: 'MBA-302', name: 'Financial Markets', contributor: 'c2', pdf: '' }
+          ],
+          4: [{ id: 'm9', code: 'MBA-401', name: 'Portfolio Management', contributor: 'c1', pdf: '' }],
+          5: [{ id: 'm10', code: 'MBA-501', name: 'Quantitative Finance', contributor: 'c1', pdf: '' }],
+          6: [{ id: 'm11', code: 'MBA-601', name: 'Strategic Management', contributor: 'c3', pdf: '' }]
+        },
+        mbs: {
+          1: [{ id: 'mb1', code: 'MBS-101', name: 'Advanced Microeconomics', contributor: 'c3', pdf: '' }],
+          2: [{ id: 'mb2', code: 'MBS-201', name: 'Econometrics', contributor: 'c1', pdf: '' }],
+          3: [], 4: [], 5: [], 6: []
+        },
+        mpa: {
+          1: [{ id: 'mp1', code: 'MPA-101', name: 'Public Finance', contributor: 'c2', pdf: '' }],
+          2: [], 3: [], 4: [], 5: [], 6: []
+        }
+      }
+    },
+    chapters: {}
+  };
+}
+
+function saveData() { localStorage.setItem('sp_data', JSON.stringify(DB)); }
+let DB = loadData();
+
+// ── PAGE NAVIGATION ───────────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + id);
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function navTo(id, navEl) {
+  showPage(id);
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  if (navEl) navEl.classList.add('active');
+}
+
+// ── BREADCRUMBS ───────────────────────────────────────────────────
+function setBread(items) {
+  state.breadcrumbs = items;
+}
+
+function renderBread(containerId, extra) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  let html = '<a onclick="navTo(\'notes-main\',null)">Notes</a>';
+  (state.breadcrumbs || []).forEach(b => {
+    html += '<span class="sep"> / </span>';
+    if (b.page) html += `<a onclick="showPage('${b.page}')">${b.label}</a>`;
+    else html += `<span>${b.label}</span>`;
+  });
+  if (extra) html += `<span class="sep"> / </span><span>${extra}</span>`;
+  el.innerHTML = html;
+}
+
+// ── MASTERS PROGRAMS ──────────────────────────────────────────────
+const PROGRAMS = [
+  { key: 'mba', icon: '💼', name: 'MBA', full: 'Master of Business Administration' },
+  { key: 'mbs', icon: '📉', name: 'MBS', full: 'Master of Business Studies' },
+  { key: 'mpa', icon: '🏛️', name: 'MPA', full: 'Master of Public Administration' }
+];
+
+function renderPrograms() {
+  const g = document.getElementById('programs-grid');
+  g.innerHTML = PROGRAMS.map(p => {
+    const count = Object.values(DB.subjects.master[p.key] || {}).flat().length;
+    return `<div class="program-card" onclick="openProgram('${p.key}')">
+      <div class="program-icon">${p.icon}</div>
+      <div class="program-name">${p.name}</div>
+      <div class="program-full">${p.full}</div>
+      <div class="program-count">${count} subjects · 6 trimesters</div>
+    </div>`;
+  }).join('');
+  renderBread('bread-master');
+}
+
+function openProgram(key) {
+  state.currentProgram = key;
+  const prog = PROGRAMS.find(p => p.key === key);
+  setBread([
+    { label: 'Masters', page: 'notes-master' },
+    { label: prog.name }
+  ]);
+  document.getElementById('tri-program-title').textContent = `${prog.name} — ${prog.full}`;
+  document.getElementById('tri-program-sub').textContent = 'Select a trimester to view subjects';
+  renderTrimesters(key);
+  showPage('trimesters');
+  renderBread('bread-trimester');
+}
+
+// ── TRIMESTERS ────────────────────────────────────────────────────
+function renderTrimesters(progKey) {
+  const g = document.getElementById('trimesters-grid');
+  const progData = DB.subjects.master[progKey] || {};
+  g.innerHTML = [1,2,3,4,5,6].map(t => {
+    const subs = (progData[t] || []).length;
+    return `<div class="trimester-card" onclick="openTrimester('${progKey}',${t})">
+      <div class="tri-num">${t}</div>
+      <div class="tri-label">Trimester ${t}</div>
+      <div class="tri-subjects">${subs} subject${subs !== 1 ? 's' : ''}</div>
+    </div>`;
+  }).join('');
+}
+
+function openTrimester(progKey, tri) {
+  state.currentProgram = progKey;
+  state.currentTrimester = tri;
+  const prog = PROGRAMS.find(p => p.key === progKey);
+  setBread([
+    { label: 'Masters', page: 'notes-master' },
+    { label: prog.name, page: 'trimesters' },
+    { label: `Trimester ${tri}` }
+  ]);
+  document.getElementById('subjects-title').textContent = `${prog.name} · Trimester ${tri} Subjects`;
+  document.getElementById('subjects-sub').textContent = 'Click a subject to view chapters';
+  renderSubjectsPage('master');
+  showPage('subjects');
+  renderBread('bread-subjects');
+}
+
+// ── SUBJECTS ──────────────────────────────────────────────────────
+function getContrib(id) {
+  return DB.contributors.find(c => c.id === id) || { name: 'Unknown', role: '', pic: '' };
+}
+
+function avatarHTML(contrib) {
+  if (contrib.pic) {
+    return `<img class="contributor-avatar" src="${contrib.pic}" alt="${contrib.name}" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
+    <div style="display:none;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">${contrib.name.charAt(0)}</div>`;
+  }
+  return `<div style="display:flex;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">${contrib.name.charAt(0)}</div>`;
+}
+
+function subjectCard(s, context) {
+  const contrib = getContrib(s.contributor);
+  const chCount = (DB.chapters[s.id] || []).length;
+  return `<div class="subject-card" onclick="openSubject('${s.id}','${context}')">
+    ${s.pdf ? '<div class="subject-pdf-badge">PDF</div>' : ''}
+    <div class="subject-code">${s.code}</div>
+    <div class="subject-name">${s.name}</div>
+    <div class="subject-chapters">${chCount} chapter${chCount !== 1 ? 's' : ''}</div>
+    <div class="subject-contributor">
+      ${avatarHTML(contrib)}
+      <div class="contributor-info">
+        <div class="contributor-name">${contrib.name}</div>
+        <div class="contributor-role">${contrib.role}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderSubjectsPage(level) {
+  const g = document.getElementById('subjects-grid');
+  let subs = [];
+  if (level === 'plus2') subs = DB.subjects.plus2;
+  else if (level === 'bachelor') subs = DB.subjects.bachelor;
+  else if (level === 'master') {
+    subs = (DB.subjects.master[state.currentProgram] || {})[state.currentTrimester] || [];
+  }
+  if (!subs.length) {
+    g.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><div>No subjects yet. Admin can add subjects.</div></div>';
+    return;
+  }
+  g.innerHTML = subs.map(s => subjectCard(s, level)).join('');
+}
+
+// render +2 and bachelor inline grids
+function renderInlineSubjects(level, gridId) {
+  const g = document.getElementById(gridId);
+  const subs = DB.subjects[level] || [];
+  if (!subs.length) { g.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><div>No subjects yet.</div></div>'; return; }
+  g.innerHTML = subs.map(s => subjectCard(s, level)).join('');
+}
+
+// ── OPEN SUBJECT → CHAPTERS ───────────────────────────────────────
+function openSubject(subjectId, context) {
+  state.currentSubjectKey = subjectId;
+  const allSubs = getAllSubjects();
+  const sub = allSubs.find(s => s.id === subjectId);
+  if (!sub) return;
+  document.getElementById('chapters-title').textContent = sub.name;
+  document.getElementById('chapters-sub').textContent = sub.code + ' · Study Materials';
+  renderChapters(subjectId);
+  showPage('chapters');
+  renderBread('bread-chapters', sub.name);
+}
+
+function getAllSubjects() {
+  let all = [...DB.subjects.plus2, ...DB.subjects.bachelor];
+  Object.values(DB.subjects.master).forEach(prog => {
+    Object.values(prog).forEach(trimArr => all = all.concat(trimArr));
+  });
+  return all;
+}
+
+function renderChapters(subjectId) {
+  const chapters = DB.chapters[subjectId] || [];
+  const list = document.getElementById('chapter-list');
+  if (!chapters.length) {
+    list.innerHTML = '<div class="empty-state"><div class="empty-icon">📂</div><div>No chapters yet. Admin can add chapters.</div></div>';
+    return;
+  }
+  list.innerHTML = chapters.map((ch, i) => `
+    <div class="chapter-item">
+      <div class="chapter-num">${ch.num || i + 1}</div>
+      <div class="chapter-info">
+        <div class="chapter-title">${ch.title}</div>
+        <div class="chapter-meta">${ch.desc || 'No description'}</div>
+      </div>
+      <div class="chapter-actions">
+        ${ch.pdf ? `<button class="chapter-pdf-btn" onclick="openPDF('${ch.pdf}','${ch.title}')">📄 PDF</button>` : ''}
+        <button class="chapter-edit-btn" onclick="openEditChapter('${subjectId}','${ch.id}')">✏️ Edit</button>
+      </div>
+    </div>`).join('');
+}
+
+// ── PDF VIEWER ────────────────────────────────────────────────────
+function openPDF(url, title) {
+  state.pdfBack = document.querySelector('.page.active')?.id?.replace('page-','');
+  document.getElementById('pdf-title').textContent = title;
+  document.getElementById('pdf-frame').src = url;
+  showPage('pdf');
+}
+
+function goBackPdf() { if (state.pdfBack) showPage(state.pdfBack); }
+
+// ── ADMIN ─────────────────────────────────────────────────────────
+function openAdmin() {
+  document.getElementById('admin-overlay').classList.add('open');
+  refreshAdminContribDropdowns();
+  refreshAdminSubjectDropdown();
+  refreshAdminContribList();
+  refreshAdminManage();
+}
+function closeAdmin() { document.getElementById('admin-overlay').classList.remove('open'); }
+
+function switchAdminTab(tab, el) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.admin-content').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('atab-' + tab).classList.add('active');
+  if (tab === 'contributors') refreshAdminContribList();
+  if (tab === 'manage') refreshAdminManage();
+}
+
+function updateProgramDropdown() {
+  const lvl = document.getElementById('admin-subject-level').value;
+  const show = lvl === 'master';
+  document.getElementById('admin-program-group').style.display = show ? '' : 'none';
+  document.getElementById('admin-trimester-group').style.display = show ? '' : 'none';
+}
+updateProgramDropdown();
+
+function genId() { return 'id_' + Date.now() + '_' + Math.random().toString(36).slice(2,7); }
+
+function adminAddSubject() {
+  const lvl = document.getElementById('admin-subject-level').value;
+  const code = document.getElementById('admin-subject-code').value.trim();
+  const name = document.getElementById('admin-subject-name').value.trim();
+  const contrib = document.getElementById('admin-subject-contributor').value;
+  const pdf = document.getElementById('admin-subject-pdf').value.trim();
+  if (!code || !name) { showToast('Please fill subject code and name.','⚠️'); return; }
+  const newS = { id: genId(), code, name, contributor: contrib, pdf };
+  if (lvl === 'plus2') DB.subjects.plus2.push(newS);
+  else if (lvl === 'bachelor') DB.subjects.bachelor.push(newS);
+  else {
+    const prog = document.getElementById('admin-subject-program').value;
+    const tri = document.getElementById('admin-subject-trimester').value;
+    if (!DB.subjects.master[prog]) DB.subjects.master[prog] = {};
+    if (!DB.subjects.master[prog][tri]) DB.subjects.master[prog][tri] = [];
+    DB.subjects.master[prog][tri].push(newS);
+  }
+  saveData();
+  showToast('Subject added!');
+  document.getElementById('admin-subject-code').value = '';
+  document.getElementById('admin-subject-name').value = '';
+  document.getElementById('admin-subject-pdf').value = '';
+  refreshAdminSubjectDropdown();
+  refreshAdminManage();
+}
+
+function adminAddChapter() {
+  const subId = document.getElementById('admin-chapter-subject').value;
+  const num = document.getElementById('admin-chapter-num').value;
+  const title = document.getElementById('admin-chapter-title').value.trim();
+  const desc = document.getElementById('admin-chapter-desc').value.trim();
+  const pdf = document.getElementById('admin-chapter-pdf').value.trim();
+  if (!subId || !title) { showToast('Select a subject and enter title.','⚠️'); return; }
+  if (!DB.chapters[subId]) DB.chapters[subId] = [];
+  DB.chapters[subId].push({ id: genId(), num: num || (DB.chapters[subId].length + 1), title, desc, pdf });
+  saveData();
+  showToast('Chapter added!');
+  document.getElementById('admin-chapter-num').value = '';
+  document.getElementById('admin-chapter-title').value = '';
+  document.getElementById('admin-chapter-desc').value = '';
+  document.getElementById('admin-chapter-pdf').value = '';
+  refreshAdminManage();
+  if (state.currentSubjectKey === subId) renderChapters(subId);
+}
+
+function adminAddContributor() {
+  const name = document.getElementById('admin-contrib-name').value.trim();
+  const role = document.getElementById('admin-contrib-role').value.trim();
+  const pic = document.getElementById('admin-contrib-pic').value.trim();
+  if (!name) { showToast('Enter contributor name.','⚠️'); return; }
+  DB.contributors.push({ id: genId(), name, role, pic });
+  saveData();
+  showToast('Contributor added!');
+  document.getElementById('admin-contrib-name').value = '';
+  document.getElementById('admin-contrib-role').value = '';
+  document.getElementById('admin-contrib-pic').value = '';
+  refreshAdminContribDropdowns();
+  refreshAdminContribList();
+}
+
+function deleteContributor(id) {
+  DB.contributors = DB.contributors.filter(c => c.id !== id);
+  saveData();
+  refreshAdminContribDropdowns();
+  refreshAdminContribList();
+  showToast('Contributor removed.');
+}
+
+function deleteSubject(id) {
+  ['plus2','bachelor'].forEach(lvl => {
+    DB.subjects[lvl] = DB.subjects[lvl].filter(s => s.id !== id);
+  });
+  Object.keys(DB.subjects.master).forEach(prog => {
+    Object.keys(DB.subjects.master[prog]).forEach(tri => {
+      DB.subjects.master[prog][tri] = DB.subjects.master[prog][tri].filter(s => s.id !== id);
+    });
+  });
+  delete DB.chapters[id];
+  saveData();
+  refreshAdminManage();
+  refreshAdminSubjectDropdown();
+  showToast('Subject removed.');
+}
+
+function deleteChapter(subId, chId) {
+  DB.chapters[subId] = (DB.chapters[subId] || []).filter(c => c.id !== chId);
+  saveData();
+  refreshAdminManage();
+  if (state.currentSubjectKey === subId) renderChapters(subId);
+  showToast('Chapter removed.');
+}
+
+function openEditChapter(subId, chId) {
+  const ch = (DB.chapters[subId] || []).find(c => c.id === chId);
+  if (!ch) return;
+  const newTitle = prompt('Edit chapter title:', ch.title);
+  if (newTitle !== null) { ch.title = newTitle.trim() || ch.title; }
+  const newDesc = prompt('Edit description:', ch.desc || '');
+  if (newDesc !== null) ch.desc = newDesc;
+  const newPdf = prompt('Edit PDF URL:', ch.pdf || '');
+  if (newPdf !== null) ch.pdf = newPdf;
+  saveData();
+  renderChapters(subId);
+  showToast('Chapter updated!');
+}
+
+function refreshAdminContribDropdowns() {
+  const opts = DB.contributors.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  document.getElementById('admin-subject-contributor').innerHTML = '<option value="">-- Select --</option>' + opts;
+}
+
+function refreshAdminSubjectDropdown() {
+  const all = getAllSubjects();
+  document.getElementById('admin-chapter-subject').innerHTML =
+    '<option value="">-- Select Subject --</option>' +
+    all.map(s => `<option value="${s.id}">[${s.code}] ${s.name}</option>`).join('');
+}
+
+function refreshAdminContribList() {
+  const el = document.getElementById('admin-contrib-list');
+  if (!DB.contributors.length) { el.innerHTML = '<div style="color:var(--text3);font-size:0.85rem;">No contributors yet.</div>'; return; }
+  el.innerHTML = DB.contributors.map(c => `
+    <div class="admin-list-item">
+      <div class="ali-info"><div class="ali-name">${c.name}</div><div class="ali-meta">${c.role || 'No role'}</div></div>
+      <div class="ali-actions"><button class="ali-del" onclick="deleteContributor('${c.id}')">🗑</button></div>
+    </div>`).join('');
+}
+
+function refreshAdminManage() {
+  const subEl = document.getElementById('admin-subjects-list');
+  const all = getAllSubjects();
+  if (!all.length) { subEl.innerHTML = '<div style="color:var(--text3);font-size:0.85rem;">No subjects.</div>'; }
+  else subEl.innerHTML = all.map(s => `
+    <div class="admin-list-item">
+      <div class="ali-info"><div class="ali-name">${s.name}</div><div class="ali-meta">${s.code}</div></div>
+      <div class="ali-actions"><button class="ali-del" onclick="deleteSubject('${s.id}')">🗑</button></div>
+    </div>`).join('');
+
+  const chEl = document.getElementById('admin-chapters-list');
+  const allCh = Object.entries(DB.chapters).flatMap(([sid,chs]) => {
+    const sub = all.find(s => s.id === sid);
+    return (chs || []).map(ch => ({ ...ch, subId: sid, subName: sub?.name || sid }));
+  });
+  if (!allCh.length) { chEl.innerHTML = '<div style="color:var(--text3);font-size:0.85rem;">No chapters.</div>'; }
+  else chEl.innerHTML = allCh.map(ch => `
+    <div class="admin-list-item">
+      <div class="ali-info"><div class="ali-name">Ch.${ch.num} · ${ch.title}</div><div class="ali-meta">${ch.subName}</div></div>
+      <div class="ali-actions">
+        <button class="ali-edit" onclick="openEditChapter('${ch.subId}','${ch.id}')">✏️</button>
+        <button class="ali-del" onclick="deleteChapter('${ch.subId}','${ch.id}')">🗑</button>
+      </div>
+    </div>`).join('');
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────
+function showToast(msg, icon = '✅') {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.querySelector('.toast-icon').textContent = icon;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // render masters programs when that page shown
+  renderPrograms();
+  // pre-render +2 and bachelor
+  renderInlineSubjects('plus2', 'subjects-plus2');
+  renderInlineSubjects('bachelor', 'subjects-bachelor');
+});
+
+// override showPage to re-render dynamic pages
+const _origShow = showPage;
+window.showPage = function(id) {
+  _origShow(id);
+  if (id === 'notes-master') { renderPrograms(); renderBread('bread-master'); }
+  if (id === 'notes-plus2') { renderInlineSubjects('plus2','subjects-plus2'); renderBread('bread-plus2'); }
+  if (id === 'notes-bachelor') { renderInlineSubjects('bachelor','subjects-bachelor'); renderBread('bread-bachelor'); }
+};
+</script>
+</body>
+</html>
